@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+
+<div class="tarjeta-cancion">
+    <!-- IMAGEN (Católica de Unsplash) -->
+    <div class="tarjeta-imagen">
+        <!-- Botón para Salir/Volver a la Lista -->
+        <a href="{% url 'cancionero' %}" class="btn-volver" title="Volver a la lista">
+            <i class="fa fa-arrow-left"></i> Volver
+        </a>
+        <img src="{% static 'img/Altar.jfif' %}" alt="Tarjeta">
+    </div>
+
+    <!-- TEXTO / CONTENIDO -->
+    <div class="tarjeta-cuerpo">
+        <span class="subtitulo">Canción #{{ cancion.id }}</span>
+        <h2 class="titulo">{{ cancion.titulo }}</h2>
+        <div class="contenido">
+            <p>{{ cancion.contenido|linebreaks }}</p>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN (En lugar de Stats) -->
+    <div class="tarjeta-navegacion">
+        {% if cancion_anterior_id %}
+            <a href="{% url 'detalle_cancion' cancion_anterior_id %}" class="btn-nav">
+                <i class="fa fa-chevron-left"></i> Anterior
+            </a>
+        {% else %}
+            <span class="btn-nav disabled"><i class="fa fa-chevron-left"></i> Anterior</span>
+        {% endif %}
+
+        {% if cancion_siguiente_id %}
+            <a href="{% url 'detalle_cancion' cancion_siguiente_id %}" class="btn-nav">
+                Siguiente <i class="fa fa-chevron-right"></i>
+            </a>
+        {% else %}
+            <span class="btn-nav disabled">Siguiente <i class="fa fa-chevron-right"></i></span>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
