@@ -27,7 +27,13 @@ SECRET_KEY = 'django-insecure-*id)crl_)7k5(tud$+3fo!i=p&=$co7t1g=p2u4p#y$c3s$317
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
+# Permitir comodín o tu subdominio de Render
 ALLOWED_HOSTS = ['*']
+
+# O configurarlo dinámicamente con Render
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
