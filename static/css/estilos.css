@@ -100,84 +100,126 @@ body{
         }
 
 /*Caniones*/
-/* Contenedor principal de la lista */
 .lista-canciones {
         width: 100%;
-        height: 90%;
-        max-width: 400px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        margin: 20px auto;
-        font-family: Arial, sans-serif;
-    }
-
-    .encabezado-lista {
-        background-color: #8e44ad;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #121212;
+        border-radius: 12px;
+        padding: 20px;
+        box-sizing: border-box;
         color: #ffffff;
-        padding: 18px 20px;
-        text-align: center;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     .encabezado-lista h2 {
-        margin: 0;
-        font-size: 1.1rem;
-        font-weight: 500;
+        margin: 0 0 15px 0;
+        font-size: 1.4rem;
+        font-weight: 700;
     }
 
+    /* Estilos del Buscador */
+    .buscador-contenedor {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .icono-buscador {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #b3b3b3;
+        font-size: 0.95rem;
+    }
+
+    #inputBuscador {
+        width: 100%;
+        padding: 12px 14px 12px 40px;
+        background-color: #242424;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        color: #ffffff;
+        font-size: 0.95rem;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    #inputBuscador:focus {
+        border-color: #1DB954;
+        background-color: #2a2a2a;
+    }
+
+    #inputBuscador::placeholder {
+        color: #b3b3b3;
+    }
+
+    /* Lista de ítems */
     .cuerpo-lista {
         display: flex;
         flex-direction: column;
-        padding: 5px 0;
+        gap: 8px;
     }
 
+    /* Redirección en toda la tarjeta */
     .item-cancion {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 20px;
-        background-color: #ffffff;
-        transition: all 0.25s ease;
-        border-bottom: 1px solid #f0f0f0;
+        padding: 12px 16px;
+        background-color: #181818;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #ffffff;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        cursor: pointer;
+    }
+
+    .item-cancion:hover {
+        background-color: #282828;
+    }
+
+    .item-cancion:hover .titulo-cancion {
+        color: #1DB954;
+    }
+
+    .item-cancion:hover .icono-accion {
+        color: #1DB954;
+        transform: translateX(3px);
     }
 
     .info-cancion {
         display: flex;
         align-items: center;
-        gap: 15px;
-    }
-
-    /* Estilos del enlace en el título */
-    .link-cancion {
-        text-decoration: none;
-        color: #333333;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: color 0.2s ease;
+        gap: 14px;
     }
 
     .icono-estado {
+        color: #b3b3b3;
         font-size: 1.1rem;
-        color: #8e44ad;
+    }
+
+    .titulo-cancion {
+        font-weight: 600;
+        font-size: 0.98rem;
+        transition: color 0.2s ease;
     }
 
     .icono-accion {
-        color: #8e44ad;
-        text-decoration: none;
+        color: #b3b3b3;
+        font-size: 0.9rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .item-vacio {
+        padding: 16px;
+        text-align: center;
+        color: #b3b3b3;
         font-size: 0.9rem;
     }
 
-    /* Efecto al pasar el cursor */
-    .item-cancion:hover {
-        background-color: #f8f4fc;
-    }
-
-    .item-cancion:hover .link-cancion {
-        color: #8e44ad;
-    }
-
+    /*Cancion*/
 /* Layout principal para centrar tarjeta y botones laterales */
     .pantalla-cancion {
         display: flex;
@@ -379,7 +421,6 @@ body{
             height: 48px;
         }
     }
-    
 table{
   align-items: center;
   text-align: center;

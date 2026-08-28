@@ -8,27 +8,41 @@
     <div class="encabezado-lista">
         <h2>Lista de canciones</h2>
     </div>
+
+    <!-- BARRA DE BÚSQUEDA -->
+    <div class="buscador-contenedor">
+        <i class="fa fa-search icono-buscador"></i>
+        <input 
+            type="text" 
+            id="inputBuscador" 
+            placeholder="Buscar canción por título..." 
+            onkeyup="filtrarCanciones()"
+        >
+    </div>
     
-    <div class="cuerpo-lista">
+    <div class="cuerpo-lista" id="contenedorCanciones">
         {% for cancion in canciones %}
-            <div class="item-cancion">
+            <!-- Convertido a <a> para que TODA la tarjeta sea el enlace -->
+            <a href="{% url 'detalle_cancion' cancion.id %}" class="item-cancion">
                 <div class="info-cancion">
                     <i class="fa {{ cancion.icono|default:'fa-music' }} icono-estado"></i>
-                    <!-- Enlace directo utilizando el ID de la canción -->
-                    <a href="{% url 'detalle_cancion' cancion.id %}" class="link-cancion">
-                        <span class="titulo-cancion">{{ cancion.titulo }}</span>
-                    </a>
+                    <span class="titulo-cancion">{{ cancion.titulo }}</span>
                 </div>
-                <a href="{% url 'detalle_cancion' cancion.id %}" class="icono-accion" title="Ver detalle">
+                <div class="icono-accion" title="Ver detalle">
                     <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
+                </div>
+            </a>
         {% empty %}
-            <div class="item-cancion">
-                <span class="titulo-cancion">No hay canciones disponibles.</span>
+            <div class="item-vacio">
+                <span>No hay canciones disponibles.</span>
             </div>
         {% endfor %}
+
+        <!-- Mensaje cuando la búsqueda no encuentra coincidencias -->
+        <div id="sinResultados" class="item-vacio" style="display: none;">
+            <span>No se encontraron canciones.</span>
+        </div>
     </div>
 </div>
-</script>
+
 {% endblock %}
