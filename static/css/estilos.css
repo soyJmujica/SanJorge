@@ -101,124 +101,136 @@ body{
 
 /*Caniones*/
 .lista-canciones {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #121212;
-        border-radius: 12px;
-        padding: 20px;
-        box-sizing: border-box;
-        color: #ffffff;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Fondo principal blanco */
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #6b21a8; /* Texto base en púrpura */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave para destacar sobre fondos claros */
+}
 
-    .encabezado-lista h2 {
-        margin: 0 0 15px 0;
-        font-size: 1.4rem;
-        font-weight: 700;
-    }
+/* Encabezado Púrpura con Letras Blancas */
+.encabezado-lista {
+    background-color: #6b21a8; /* Púrpura intenso */
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
-    /* Estilos del Buscador */
-    .buscador-contenedor {
-        position: relative;
-        margin-bottom: 20px;
-    }
+.encabezado-lista h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff; /* Letras blancas */
+}
 
-    .icono-buscador {
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #b3b3b3;
-        font-size: 0.95rem;
-    }
+/* Estilos del Buscador */
+.buscador-contenedor {
+    position: relative;
+    margin-bottom: 20px;
+}
 
-    #inputBuscador {
-        width: 100%;
-        padding: 12px 14px 12px 40px;
-        background-color: #242424;
-        border: 1px solid transparent;
-        border-radius: 20px;
-        color: #ffffff;
-        font-size: 0.95rem;
-        outline: none;
-        box-sizing: border-box;
-        transition: border-color 0.2s ease, background-color 0.2s ease;
-    }
+.icono-buscador {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8b5cf6; /* Púrpura claro */
+    font-size: 0.95rem;
+}
 
-    #inputBuscador:focus {
-        border-color: #1DB954;
-        background-color: #2a2a2a;
-    }
+#inputBuscador {
+    width: 100%;
+    padding: 12px 14px 12px 40px;
+    background-color: #f5f3ff; /* Fondo púrpura extremadamente suave */
+    border: 1px solid #ddd6fe;
+    border-radius: 20px;
+    color: #581c87;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
 
-    #inputBuscador::placeholder {
-        color: #b3b3b3;
-    }
+#inputBuscador:focus {
+    border-color: #7e22ce;
+    background-color: #ffffff;
+}
 
-    /* Lista de ítems */
-    .cuerpo-lista {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+#inputBuscador::placeholder {
+    color: #a78bfa;
+}
 
-    /* Redirección en toda la tarjeta */
-    .item-cancion {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 16px;
-        background-color: #181818;
-        border-radius: 8px;
-        text-decoration: none;
-        color: #ffffff;
-        transition: background-color 0.2s ease, transform 0.1s ease;
-        cursor: pointer;
-    }
+/* Lista de ítems */
+.cuerpo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-    .item-cancion:hover {
-        background-color: #282828;
-    }
+/* Redirección en toda la tarjeta (Fondo blanco y texto púrpura) */
+.item-cancion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border: 1px solid #f3e8ff; /* Borde sutil púrpura */
+    border-radius: 8px;
+    text-decoration: none;
+    color: #6b21a8; /* Letras púrpura */
+    transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
 
-    .item-cancion:hover .titulo-cancion {
-        color: #1DB954;
-    }
+.item-cancion:hover {
+    background-color: #f3e8ff; /* Fondo púrpura claro al pasar el mouse */
+    border-color: #c084fc;
+}
 
-    .item-cancion:hover .icono-accion {
-        color: #1DB954;
-        transform: translateX(3px);
-    }
+.item-cancion:hover .titulo-cancion {
+    color: #581c87; /* Púrpura más oscuro al hacer hover */
+}
 
-    .info-cancion {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-    }
+.item-cancion:hover .icono-accion {
+    color: #581c87;
+    transform: translateX(3px);
+}
 
-    .icono-estado {
-        color: #b3b3b3;
-        font-size: 1.1rem;
-    }
+.info-cancion {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
 
-    .titulo-cancion {
-        font-weight: 600;
-        font-size: 0.98rem;
-        transition: color 0.2s ease;
-    }
+.icono-estado {
+    color: #8b5cf6; /* Ícono musical en púrpura */
+    font-size: 1.1rem;
+}
 
-    .icono-accion {
-        color: #b3b3b3;
-        font-size: 0.9rem;
-        transition: color 0.2s ease, transform 0.2s ease;
-    }
+.titulo-cancion {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: #6b21a8; /* Título en púrpura */
+    transition: color 0.2s ease;
+}
 
-    .item-vacio {
-        padding: 16px;
-        text-align: center;
-        color: #b3b3b3;
-        font-size: 0.9rem;
-    }
+.icono-accion {
+    color: #a78bfa;
+    font-size: 0.9rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
 
+.item-vacio {
+    padding: 16px;
+    text-align: center;
+    color: #8b5cf6;
+    font-size: 0.9rem;
+}
     /*Cancion*/
 /* Layout principal para centrar tarjeta y botones laterales */
     .pantalla-cancion {
