@@ -4,44 +4,59 @@
 <br>
 <br>
 
-<div class="tarjeta-cancion">
-    <!-- IMAGEN (Católica de Unsplash) -->
-    <div class="tarjeta-imagen">
-        <!-- Botón para Salir/Volver a la Lista -->
-        <a href="{% url 'cancionero' %}" class="btn-volver" title="Volver a la lista">
-            <i class="fa fa-arrow-left"></i> Volver
-        </a>
-        <img src="{% static 'img/Altar.jfif' %}" alt="Tarjeta">
+<!-- CONTENEDOR PRINCIPAL RESPONSIVE -->
+<div class="pantalla-cancion">
+
+    <!-- BOTÓN ANTERIOR (LATERAL IZQUIERDO) -->
+    <div class="nav-lateral nav-izquierda">
+        {% if cancion_anterior_id %}
+            <a href="{% url 'detalle_cancion' cancion_anterior_id %}" class="btn-nav-flotante" title="Canción anterior">
+                <i class="fa fa-chevron-left"></i>
+                <span class="texto-nav">Anterior</span>
+            </a>
+        {% else %}
+            <span class="btn-nav-flotante disabled">
+                <i class="fa fa-chevron-left"></i>
+                <span class="texto-nav">Anterior</span>
+            </span>
+        {% endif %}
     </div>
 
-    <!-- TEXTO / CONTENIDO -->
-    <div class="tarjeta-cuerpo">
-        <span class="subtitulo">Canción #{{ cancion.id }}</span>
-        <h2 class="titulo">{{ cancion.titulo }}</h2>
-        <div class="contenido">
-            <p>{{ cancion.contenido|linebreaks }}</p>
+    <!-- TARJETA PRINCIPAL -->
+    <div class="tarjeta-cancion">
+        <!-- IMAGEN CON BOTÓN VOLVER SUPERPUESTO -->
+        <div class="tarjeta-imagen">
+            <a href="{% url 'cancionero' %}" class="btn-volver" title="Volver a la lista">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
+            <img src="{% static 'img/Altar.jfif' %}" alt="Imagen de {{ cancion.titulo }}">
+        </div>
+
+        <!-- CUERPO DE LA TARJETA -->
+        <div class="tarjeta-cuerpo">
+            <span class="subtitulo">Canción #{{ cancion.id }}</span>
+            <h2 class="titulo">{{ cancion.titulo }}</h2>
+            <div class="contenido">
+                <p>{{ cancion.contenido|linebreaks }}</p>
+            </div>
         </div>
     </div>
 
-    <!-- NAVEGACIÓN (En lugar de Stats) -->
-    <div class="tarjeta-navegacion">
-        {% if cancion_anterior_id %}
-            <a href="{% url 'detalle_cancion' cancion_anterior_id %}" class="btn-nav">
-                <i class="fa fa-chevron-left"></i> Anterior
-            </a>
-        {% else %}
-            <span class="btn-nav disabled"><i class="fa fa-chevron-left"></i> Anterior</span>
-        {% endif %}
-
+    <!-- BOTÓN SIGUIENTE (LATERAL DERECHO) -->
+    <div class="nav-lateral nav-derecha">
         {% if cancion_siguiente_id %}
-            <a href="{% url 'detalle_cancion' cancion_siguiente_id %}" class="btn-nav">
-                Siguiente <i class="fa fa-chevron-right"></i>
+            <a href="{% url 'detalle_cancion' cancion_siguiente_id %}" class="btn-nav-flotante" title="Siguiente canción">
+                <span class="texto-nav">Siguiente</span>
+                <i class="fa fa-chevron-right"></i>
             </a>
         {% else %}
-            <span class="btn-nav disabled">Siguiente <i class="fa fa-chevron-right"></i></span>
+            <span class="btn-nav-flotante disabled">
+                <span class="texto-nav">Siguiente</span>
+                <i class="fa fa-chevron-right"></i>
+            </span>
         {% endif %}
     </div>
-</div>
 
+</div>
 
 {% endblock %}
